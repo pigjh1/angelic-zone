@@ -41,7 +41,7 @@
 		<p>
 			<a href="javascript:history.back()" title="이전페이지로 이동합니다.">이전페이지</a>
 			<span class="bar">l</span>
-			<a href="http://pigjh1.zc.bz" title="http://pigjh1.zc.bz으로 이동합니다.">Code Lab</a>
+			<a href="http://pigjh1.zc.bz" title="http://pigjh1.zc.bz으로 이동합니다.">Homepage</a>
 		</p>
 	</section>
 </div>
