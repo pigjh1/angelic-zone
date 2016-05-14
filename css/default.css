@@ -1,17 +1,28 @@
 @charset "utf-8";
 
 /**********************************************************
- * 파일명	:default.css (ver 1.0)
+ * 파일명	:default.css (ver 1.2)
  * 설명		:default
  * 작성자	:Joo Hee Kim (pigjh1)
- * 작성일	:2012.07.02
-***********************************************************/
+ * 작성일	:2013.03.12
+ ***********************************************************/
 
-/* http://meyerweb.com/eric/tools/css/reset/
-
- v2.0 | 20110126
- License: none (public domain)
+/*
+* Nanum Gothic (Korean) http://www.google.com/webfonts/earlyaccess
 */
+
+@font-face {
+	font-family: 'Nanum Gothic';
+	font-style: normal;
+	font-weight: 400;
+	src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Regular.eot);
+	src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Regular.eot?#iefix) format('embedded-opentype'),
+	url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Regular.woff2) format('x-woff2'),
+	url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Regular.woff) format('woff'),
+	url(//themes.googleusercontent.com/static/fonts/earlyaccess/nanumgothic/v2/NanumGothic-Regular.ttf) format('truetype');
+}
+
+/* Reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -29,95 +40,90 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
 }
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+table {border-collapse: collapse; border-spacing: 0;}
 
 /* Type Selector */
-body, table, input, select, textarea, button {
-    font-family: '맑은 고딕','Malgun Gothic',돋움,굴림,Dotum,Gulim,sans-serif;
+body {
+	font-family:'Nanum Gothic', NanumGothic,'돋움',Dotum, DotumChe, Arial, sans-serif;
 	font-size: 12px;
-	line-height:20px;
+	line-height: 20px;
+	color: #666;
 }
 
 /* Basic Link Style */
-a { text-decoration:none; cursor:pointer; }
-a:link { text-decoration:none; }
-a:visited { text-decoration:none; }
-a:hover { text-decoration:none; }
-a.underline { text-decoration:underline; }
-
-/* Png Imgae */
-.png24 { tmp:expression(setPng24(this)); }
+a {text-decoration:none; cursor:pointer;}
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+a.underline {text-decoration:underline;}
 
 /* Layout & Align */
-.f_l { float:left; }
-.f_r { float:right; }
-.t_c { text-align:center; }
-.t_r { text-align:right; }
-.btn { display:block;  width:100%; height:auto; padding-top:5px; }
-.btn_r { display:block; float:right; width:45%; height:auto; padding-top:5px; text-align:right; }
-.btn_l { display:block; float:left; width:45%; height:auto; padding-top:5px; }
-.clear {zoom:1; position:relative;}
-.clear:after{content:".";height:0;clear:both;visibility:hidden;}
-.clear .left{float:left; margin-top:0;}
-.clear .right{float:right;}
-
-/* Form Style */
-input { height:18px; border:expression( (this.type=='checkbox'||this.type=='radio')?'':'1px solid #7f9db9'); vertical-align: middle; }
-input[type=text] { border:1px solid #7f9db9; }
-select { height:20px; border: #a2a2a2 1px solid; vertical-align: middle; }
-
-.input { height:20px; font-size:12px; background:#ffffff; border:1px solid #b2b3b4; vertical-align:middle; }
-.input_gray { height:20px; color:#444444; background:#f5f5f5; border:1px solid #a2a2a2; vertical-align:middle; }
-.selectbox { height:20px; font-size:12px; color:#565656; border:1px solid #a2a2a2; vertical-align:middle; }
-.inputbox_text { color:#565656; border:border:1px solid #a2a2a2; vertical-align:middle; }
+.f_l {float:left;}
+.f_r {float:right;}
+.t_c {text-align:center;}
+.btn {display:block; width:100%; padding-top:5px;}
+.btn_l {display:block; float:left; width:45%; padding-top:5px;}
+.btn_r {display:block; float:right; width:45%; padding-top:5px; text-align:right;}
+.clear {clear:both;}
 
 /* Font */
-.f_10 { font-size:10px; }
-.f_11 { font-size:11px; }
-.f_12 { font-size:12px; }
-.f_13 { font-size:13px; }
-.f_b { font-weight:bold; }
-.f_black { color:#000; }
-.f_gray { color:#333; }
-.f_red { color:#ed1c24; }
-.f_blue { color:#0054a6; }
+.f_10 {font-size:10px;}
+.f_11 {font-size:11px;}
+.f_12 {font-size:12px;}
+.f_13 {font-size:13px;}
+.f_black {color:#000;}
+.f_gray {color:#333;}
+.f_red {color:#ed1c24;}
+.f_blue {color:#0054a6;}
 
-/* Width & Height*/
-.w_100 { width:100px; }
-.h_100 { height:100px; }
+/* basic block */
+.m0{margin:0 !important}
+.mt0{margin-top:0 !important}
+.mt5{margin-top:5px !important}
+.mt10{margin-top:10px !important}
+.mt20{margin-top:20px !important}
+.mt30{margin-top:30px !important}
+.mt40{margin-top:40px !important}
+.mt50{margin-top:50px !important}
+.ml0{margin-left:0 !important}
+.mr0{margin-right:0 !important}
+.mb0{margin-bottom:0 !important}
+.mb10{margin-bottom:10px !important}
+.mb20{margin-bottom:20px !important}
+.mb30{margin-bottom:30px !important}
+.mb40{margin-bottom:40px !important}
+.p0{padding:0 !important}
+.pt10{padding-top:10px !important}
+.pt50{padding-top:50px !important}
+.pt20{padding-top:20px !important}
+.pt30{padding-top:30px !important}
+.pr5{padding-right:5px !important}
+.pr10{padding-right:10px !important}
+.pr20{padding-right:20px !important}
+.pr30{padding-right:30px !important}
+.pb20{padding-bottom:20px !important}
+.pb50{padding-bottom:50px !important}
+.pl5{padding-left:5px !important}
+.pl10{padding-left:10px !important}
+.pl20{padding-left:20px !important}
+.pl30{padding-left:30px !important}
 
-/* Block */
-.pt_5 { padding-top:5px; }
-.pl_5 { padding-left:5px; }
-.pr_5 { padding-right:5px; }
-.pb_5 { padding-bottom:5px; }
-.mt_5 { margin-top:5px; }
-.ml_5 { margin-left:5px; }
-.mr_5 { margin-right:5px; }
-.mb_5 { margin-bottom:5px; }
+/* basic others */
+.show{display:block}
+.hide{display:none}
+.ir *,
+.blind{position:absolute;width:0;height:0;font-size:0;line-height:0;overflow:hidden;visibility:hidden}
+.btn{width:100%;margin-top:10px;clear:both}
+.btn img{vertical-align:middle}
+.btn_r{float:right;width:45%;margin-top:10px;text-align:right}
+.btn_l{float:left;width:45%;margin-top:10px}
+
+.forDesktop{display:block}
+.forMoblie{display:none}
+
+.helfWrap{float:left;width:100%}
+.helf{float:left;width:45%;margin-right:3%}
