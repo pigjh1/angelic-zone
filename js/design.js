@@ -14,8 +14,6 @@ $(window).load(function(){
 		return false;
 	});
 
-	$("#profile .tabWrap").tabSelector("h3");
-
 	setPortfolio();
 });
 
@@ -35,11 +33,9 @@ function setPortfolio(){
 	var img1;
 	var img2;
 	var img3;
-	var img4;
-	var img5;
 
-	var dataHTML;
-	var o = $("#portfolio ul.pr");
+	var o = $(".portfolio ul.pr");
+	var o2 = $(".portfolio ul.pr2");
 
 	for (i=0; i< data.length; i++) {
 		project = data[i].project;
@@ -56,18 +52,15 @@ function setPortfolio(){
 		img1 = data[i].img1;
 		img2 = data[i].img2;
 		img3 = data[i].img3;
-		img4 = data[i].img4;
-		img5 = data[i].img5;
 
 		picDataHtml	=	"<ul class='pic'>"+
 								"	<li><img src='images/portfolio/"+ directory +"/"+ img1 +"' /></li>"+
 								"</ul>";
 		siteDataHtml	=	"<li><a href='"+ site +"' target='_blank'>"+ site +"</a></li>";
-		detailDataHtml	=	"<li>작업참여 | "+ rate +"</li><li>작업기간 | "+ period +"</li><li>작업환경 | "+ working +"</li>";
+		detailDataHtml	=	"<li>참여 | "+ rate +"</li><li>기간 | "+ period +"</li><li>메모 | "+ working +"</li>";
 
 		if (img1 == "") picDataHtml = "";
 		if (siteState == "") siteDataHtml = "";
-		if (category == "유지보수") detailDataHtml = "";
 
 		dataHTML =	"	<li class='box "+ year +"'>"+
 							picDataHtml +
@@ -78,20 +71,30 @@ function setPortfolio(){
 							"		</ul>";
 							"	</li>";
 
-		if (state == "")  o.append(dataHTML);
+		if (category == "유지보수") {
+			dataHTML = "";
+			dataHTML2 = "<li class='box "+ year +"'>"+ project +"</li>";
+			if (state == "Y")  o2.append(dataHTML2);
+		}
+
+		if (state == "Y")  o.append(dataHTML);
 	}
 
 	// Grid Layout
-	var $container = $('#portfolio ul.pr');
+	var $container = $('.portfolio ul.pr');
 	var $optionSets = $('.optionSet');
 	var $optionLinks = $optionSets.find('a');
 
-	$container.isotope({
-		masonry: {
-			itemSelector : '.box',
-			columnWidth: 1
-		}
-	});
+	setTimeout(function() {
+		$(".loader").hide();
+		$container.show();
+		$container.isotope({
+			masonry: {
+				itemSelector : '.box',
+				columnWidth: 1
+			}
+		});
+	}, 500);
 
 	$optionLinks.click(function(){
 		var $this = $(this);
@@ -142,68 +145,6 @@ jQuery.fn.layerPopup = function(){
 	});
 }
 
-
-/* 스킬 그래프 */
-var o = {
-	init: function(){
-		this.diagram();
-	},
-	random: function(l, u){
-		return Math.floor((Math.random()*(u-l+1))+l);
-	},
-	diagram: function(){
-		var r = Raphael('diagram', 600, 600),
-			rad = 73,
-			defaultText = 'Skills',
-			speed = 250;
-
-		r.circle(300, 300, 85).attr({ stroke: 'none', fill: '#193340' });
-
-		var title = r.text(300, 300, defaultText).attr({
-			font: '20px Arial',
-			fill: '#fff'
-		}).toFront();
-
-		r.customAttributes.arc = function(value, color, rad){
-			var v = 3.6*value,
-				alpha = v == 360 ? 359.99 : v,
-				random = o.random(91, 240),
-				a = (random-alpha) * Math.PI/180,
-				b = random * Math.PI/180,
-				sx = 300 + rad * Math.cos(b),
-				sy = 300 - rad * Math.sin(b),
-				x = 300 + rad * Math.cos(a),
-				y = 300 - rad * Math.sin(a),
-				path = [['M', sx, sy], ['A', rad, rad, 0, +(alpha > 180), 1, x, y]];
-			return { path: path, stroke: color }
-		}
-
-		$('.get').find('.arc').each(function(i){
-			var t = $(this),
-				color = t.find('.color').val(),
-				value = t.find('.percent').val(),
-				text = t.find('.text').text();
-
-			rad += 30;
-			var z = r.path().attr({ arc: [value, color, rad], 'stroke-width': 26 });
-
-			z.mouseover(function(){
-                this.animate({ 'stroke-width': 50, opacity: .75 }, 1000, 'elastic');
-                if(Raphael.type != 'VML') //solves IE problem
-				this.toFront();
-				title.stop().animate({ opacity: 0 }, speed, '>', function(){
-					this.attr({ text: text + '\n' + value + '%' }).animate({ opacity: 1 }, speed, '<');
-				});
-            }).mouseout(function(){
-				this.stop().animate({ 'stroke-width': 26, opacity: 1 }, speed*4, 'elastic');
-				title.stop().animate({ opacity: 0 }, speed, '>', function(){
-					title.attr({ text: defaultText }).animate({ opacity: 1 }, speed, '<');
-				});
-            });
-		});
-	}
-}
-$(function(){ o.init(); });
 
 
 /* tab */
