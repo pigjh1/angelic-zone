@@ -1,0 +1,1 @@
+<p>Copyright (c) 2011. Angelic Zone. All rights reserved.</p>
