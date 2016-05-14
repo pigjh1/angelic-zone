@@ -1,8 +1,29 @@
-<? include 'include/header_share.php'; ?>
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<title>Angelic Zone</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="Joo Hee, Kim">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="robots" content="noindex,nofollow"><!--임시적용-->
+<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=1.6, minimum-scale=1.0, width=device-width">
+<meta name="naver-site-verification" content="8157a225e591e0d383ad6d6ba11145ffb98dd70e"/>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="icon" href="/images/favicon.ico">
+<link rel="apple-touch-icon" href="/images/touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/touch-icon-ipad.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/touch-icon-iphone-retina.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/touch-icon-ipad-retina.png">
+<!--[if lt IE 9]>
+<script type="text/javascript" src="/js/html5.js"></script>
+<script type="text/javascript" src="/js/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
 <body>
 <div id="wrap">
-	<? include 'include/header.php'; ?>
-
 	<section id="error">
 		<h1>404 ERROR</h1>
 		<p>
@@ -23,8 +44,6 @@
 			<a href="http://pigjh1.zc.bz" title="http://pigjh1.zc.bz으로 이동합니다.">Code Lab</a>
 		</p>
 	</section>
-
-	<? include 'include/footer.php'; ?>
 </div>
 </body>
 </html>
