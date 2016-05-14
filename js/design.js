@@ -14,7 +14,78 @@ $(window).load(function(){
 		return false;
 	});
 
+	$("#profile .tabWrap").tabSelector("h3");
+
+	setPortfolio();
+});
+
+
+function setPortfolio(){
+	var project;
+	var company;
+	var category;
+	var state;
+	var site;
+	var siteState;
+	var year
+	var rate;;
+	var period;
+	var working;
+	var directory;
+	var img1;
+	var img2;
+	var img3;
+	var img4;
+	var img5;
+
+	var dataHTML;
+	var o = $("#portfolio ul.pr");
+
+	for (i=0; i< data.length; i++) {
+		project = data[i].project;
+		company = data[i].company;
+		category = data[i].category;
+		state = data[i].state;
+		site = data[i].site;
+		siteState = data[i].siteState;
+		rate = data[i].rate;
+		year = data[i].year;
+		period = data[i].period;
+		working = data[i].working;
+		directory = data[i].directory;
+		img1 = data[i].img1;
+		img2 = data[i].img2;
+		img3 = data[i].img3;
+		img4 = data[i].img4;
+		img5 = data[i].img5;
+
+		picDataHtml	=	"<ul class='pic'>"+
+								"	<li><img src='images/portfolio/"+ directory +"/"+ img1 +"' /></li>"+
+								"</ul>";
+		siteDataHtml	=	"<li><a href='"+ site +"' target='_blank'>"+ site +"</a></li>";
+		detailDataHtml	=	"<li>작업참여 | "+ rate +"</li><li>작업기간 | "+ period +"</li><li>작업환경 | "+ working +"</li>";
+
+		if (img1 == "") picDataHtml = "";
+		if (siteState == "") siteDataHtml = "";
+		if (category == "유지보수") detailDataHtml = "";
+
+		dataHTML =	"	<li class='box "+ year +"'>"+
+							picDataHtml +
+							"		<ul class='cont'>"+
+							"			<li>"+ project +"</li>"+
+							siteDataHtml +
+							detailDataHtml +
+							"		</ul>";
+							"	</li>";
+
+		if (state == "")  o.append(dataHTML);
+	}
+
+	// Grid Layout
 	var $container = $('#portfolio ul.pr');
+	var $optionSets = $('.optionSet');
+	var $optionLinks = $optionSets.find('a');
+
 	$container.isotope({
 		masonry: {
 			itemSelector : '.box',
@@ -22,68 +93,26 @@ $(window).load(function(){
 		}
 	});
 
-	//$("#portfolio article").hide();
-	//$("#portfolio article").eq(0).show();
+	$optionLinks.click(function(){
+		var $this = $(this);
+		if ( $this.hasClass('selected') ) {
+			return false;
+		}
 
-	$("#portfolio nav a").click(function(){
-		var datalink = $(this).attr("href");
-		$("#portfolio article").hide();
-		$(datalink).show();
-	});
+		var $optionSet = $this.parents('.optionSet');
+		$optionSet.find('.selected').removeClass('selected');
+		$this.addClass('selected');
 
-	$("#portfolio .pic").click(function(){
-		$("#portfolioPop").layerPopup();
-		var picData = $(this).parents("li").find(".pic").html();
-		var contData = $(this).parents("li").find(".cont").html();
-
-		picData = "<ul class='pic'>" + picData + "</ul>";
-		contData = "<ul class='cont'>" + contData + "</ul>";
-
-		$(".picArea").append(picData);
-		$(".contArea").append(contData);
-
-		$(".picArea").each(function(){
-			o=$(this).find(".pic"); //슬라이드 이미지
-			b_prev=$(this).find(".prev"); //이전버튼
-			b_next=$(this).find(".next"); //다음버튼
-			len=o.find("img").length;
-
-			o.cycle({
-				before : function(currSlideElement, nextSlideElement){
-				  o.css('height', $(nextSlideElement).height()+'px');
-				},
-				fx: 'scrollHorz',
-				timeout: 0,
-				speed: 500,
-				prev: b_prev,
-				next: b_next,
-				pagerAnchorBuilder: function (idx, pic) {
-					return '<li>'+(idx+1)+'</li>';
-				}
-			});
-		});
+		var options = {},
+			key = $optionSet.attr('data-option-key'),
+			value = $this.attr('data-option-value');
+		value = value === 'false' ? false : value;
+		options[ key ] = value;
+		$container.isotope( options );
 
 		return false;
 	});
-
-	var article = $('.faq .article');
-	article.addClass('none');
-	article.find('.a').slideUp(100);
-
-	$('.faq .article .trigger').click(function(){
-		var myArticle = $(this).parents('.article:first');
-		if(myArticle.hasClass('none')){
-			article.addClass('none').removeClass('show'); // 아코디언 효과를 원치 않으면 이 라인을 지우세요
-			article.find('.a').slideUp(100); // 아코디언 효과를 원치 않으면 이 라인을 지우세요
-			myArticle.removeClass('none').addClass('show');
-			myArticle.find('.a').slideDown(100);
-		} else {
-			myArticle.removeClass('show').addClass('none');
-			myArticle.find('.a').slideUp(100);
-		}
-	});
-
-});
+}
 
 jQuery.fn.layerPopup = function(){
 	var obj = $(this);
@@ -112,3 +141,84 @@ jQuery.fn.layerPopup = function(){
 		});
 	});
 }
+
+
+/* 스킬 그래프 */
+var o = {
+	init: function(){
+		this.diagram();
+	},
+	random: function(l, u){
+		return Math.floor((Math.random()*(u-l+1))+l);
+	},
+	diagram: function(){
+		var r = Raphael('diagram', 600, 600),
+			rad = 73,
+			defaultText = 'Skills',
+			speed = 250;
+
+		r.circle(300, 300, 85).attr({ stroke: 'none', fill: '#193340' });
+
+		var title = r.text(300, 300, defaultText).attr({
+			font: '20px Arial',
+			fill: '#fff'
+		}).toFront();
+
+		r.customAttributes.arc = function(value, color, rad){
+			var v = 3.6*value,
+				alpha = v == 360 ? 359.99 : v,
+				random = o.random(91, 240),
+				a = (random-alpha) * Math.PI/180,
+				b = random * Math.PI/180,
+				sx = 300 + rad * Math.cos(b),
+				sy = 300 - rad * Math.sin(b),
+				x = 300 + rad * Math.cos(a),
+				y = 300 - rad * Math.sin(a),
+				path = [['M', sx, sy], ['A', rad, rad, 0, +(alpha > 180), 1, x, y]];
+			return { path: path, stroke: color }
+		}
+
+		$('.get').find('.arc').each(function(i){
+			var t = $(this),
+				color = t.find('.color').val(),
+				value = t.find('.percent').val(),
+				text = t.find('.text').text();
+
+			rad += 30;
+			var z = r.path().attr({ arc: [value, color, rad], 'stroke-width': 26 });
+
+			z.mouseover(function(){
+                this.animate({ 'stroke-width': 50, opacity: .75 }, 1000, 'elastic');
+                if(Raphael.type != 'VML') //solves IE problem
+				this.toFront();
+				title.stop().animate({ opacity: 0 }, speed, '>', function(){
+					this.attr({ text: text + '\n' + value + '%' }).animate({ opacity: 1 }, speed, '<');
+				});
+            }).mouseout(function(){
+				this.stop().animate({ 'stroke-width': 26, opacity: 1 }, speed*4, 'elastic');
+				title.stop().animate({ opacity: 0 }, speed, '>', function(){
+					title.attr({ text: defaultText }).animate({ opacity: 1 }, speed, '<');
+				});
+            });
+		});
+	}
+}
+$(function(){ o.init(); });
+
+
+/* tab */
+jQuery.fn.tabSelector = function(link){
+	var $tab = $(this);
+
+	$(this).find(link).eq(0).addClass("on");
+	$(this).find(".tabCont").eq(0).show();
+
+	$tab.find(link).each(function(idx){
+		$(this).find("a").bind("click focus", function(event){
+			$(this).parent().addClass("on").siblings(link).removeClass("on");
+			$(this).parent().next(".tabCont").show().siblings(".tabCont").hide();
+
+			event.preventDefault();
+		});
+	});
+};
