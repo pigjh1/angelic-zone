@@ -10,7 +10,6 @@ var winHeight = $(window).height();
 var winRate = winWidth/winHeight;
 var userAgent = navigator.userAgent.toLowerCase();
 
-
 $(window).resize(function() {
 	if(this.resizeTO) {
 		clearTimeout(this.resizeTO);
@@ -141,7 +140,7 @@ function setPortfolio(){
 				columnWidth: 1
 			}
 		});
-	}, 500);
+	}, 3000);
 
 	$optionLinks.click(function(){
 		var $this = $(this);
@@ -168,7 +167,8 @@ function setPhoto(){
 	var userFeed = new Instafeed({
 		get: 'user',
 		userId: 247077117,
-		accessToken: '247077117.467ede5.4f9addd68e2d45c288dd3bc18c24dabc',
+		accessToken: '247077117.53cf32b.0837454ff2eb45be9295e1f755613ebb',
+		clientId: '53cf32b2d623408ba4eb67a8c09b70dd',
 		template: '<li><a href="{{link}}" target="INSTA"><img src="{{image}}" /></a></li>',
 		links: false,
 		limit: 32 //max:60

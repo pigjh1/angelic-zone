@@ -124,23 +124,7 @@ textarea{padding:5px;border:solid #666 1px;overflow:auto;}
 .social.picasa{background-position:-50px -50px}
 .social.flickr{background-position:-100px -50px}
 
-/* bar */
-.bar1{background:#ff9b25;}
-.bar2{background:#c04590;}
-.bar3{background:#45bfc0;}
-.bar4{background:#03548d;}
-.bar5{background:#ff734e;}
-.bar6{background:#63aa29;}
-.bar7{background:#ffd58b;}
-.bar8{background:#d32e2e;}
-.bar9{background:#48abff;}
-.bar10{background:#6739e8;}
-.bar11{background:#fecbea;}
-.bar12{background:#068f5b;}
-.bar13{background:#837654;}
-
 /* layout */
-
 .container{width:960px;margin:0 auto;padding:50px 0;zoom:1;}
 .container:after{content:".";height:0;clear:both;visibility:hidden;}
 .full-container{margin:0 auto;padding:50px 0;zoom:1;}
@@ -161,15 +145,22 @@ textarea{padding:5px;border:solid #666 1px;overflow:auto;}
 #footer{clear:both;width:100%;padding:5px 0;background:#334960;color:#FFF;text-align:center;}
 #footer p{font-size:10px;text-transform:uppercase;}
 
-
 @media all and (max-width:768px){
-	#header h1{font-size:0.875em;text-align:center}
+	#header h1{text-align:center}
+}
+@media all and (max-width:768px){
+	#header{height:70px;}
+	#header h1 {margin-bottom:5px;}
+	#header h1,
+	#header .gnb{float:none;text-align:center;}
+}
+@media all and (max-width:450px){
 	#header .gnb a{margin:0 5px;font-size:0.75em;}
 }
 
 /* background make:http://www.patternify.;/ */
 .home{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKUlEQVQIW2MUEhL6zwAFAgICDIwwARDnw4cPEAEYB6SQUUlJ6T9IBgYAoO8OCWvCgDUAAAAASUVORK5CYII=)}
-.profile{background:#32ac97}
+.profile{background:#28a68d}
 .portfolio{background:#f17c72}
 .photo{background:#7f4c75}
 .contacts{background:#3f9fc9}
@@ -187,14 +178,16 @@ section h3{font-size:1.5em;padding:15px 0 5px 20px;clear:both;}
 
 /* Profile */
 .profile h3{color:#1a5c51}
-.profile .greeting{font-size:1.077em;margin:5px 0 15px;}
-.profile .list{display:block;position:relative;width:100%;overflow:hidden;padding-bottom:20px;border-bottom:1px dashed #334960;}
+.profile .greeting{font-size:1.3em;margin:5px 0 15px;}
+.profile .greeting span{font-size:0.75em;}
+.profile .list{display:block;position:relative;width:100%;overflow:hidden;padding-bottom:30px;border-bottom:1px dfashed #334960;}
 .profile .list a{font-size:12px;}
 .profile .list p{padding:0 20px;}
-.profile .list dl{padding:0 20px;}
-.profile .list dt{float:left;width:15%;overflow:hidden;font-weight:bold;color:#cde9e4}
-.profile .list dd{float:left;width:85%;overflow:hidden;}
-.profile .list dd img{border:2px solid #ddd;}
+.profile .list dl{padding:0 20px;line-height:1.8em;}
+.profile .list dt{float:left;width:15%;padding:2px 0;font-weight:bold;color:#cde9e4}
+.profile .list dd{float:left;width:85%;padding:2px 0;}
+.profile .pic {padding:15px 35px;}
+.profile .pic img{border:2px solid #ddd;}
 
 @media all and (max-width:768px){
 	.profile .list dt,
@@ -266,6 +259,7 @@ section h3{font-size:1.5em;padding:15px 0 5px 20px;clear:both;}
 }
 
 /* contacts */
+.contacts {min-height:500px;}
 .contacts .container{text-align:center;}
 .contacts .twitter-warp{width:560px;margin:0 auto;margin-top:30px;}
 @media all and (max-width:560px){
@@ -273,11 +267,11 @@ section h3{font-size:1.5em;padding:15px 0 5px 20px;clear:both;}
 }
 
 /* error */
-#error{ padding:20px;color:#666;}
-#error h2{ font-family:verdana, tahoma, sans-serif;font-weight:bold;font-size:50px;color:black;line-height:100%;}
-#error p{ font-size:12px;margin-top:15px;}
-#error a{ font-weight:bold;color:#666;}
-#error .bar{ color:#a0a0a0;}
+#error{padding:20px;color:#666;text-align:center;}
+#error h2{font-family:verdana, tahoma, sans-serif;font-weight:bold;font-size:50px;color:black;line-height:100%;}
+#error p{font-size:12px;margin-top:15px;}
+#error a{font-weight:bold;color:#666;}
+#error .bar{color:#a0a0a0;}
 
 /* For print */
 @media print{
