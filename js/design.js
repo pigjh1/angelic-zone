@@ -4,6 +4,14 @@
  * 작성일	:2014.01.17
 ***********************************************************/
 
+<<<<<<< HEAD
+=======
+var winWidth = $(window).width();
+var winHeight = $(window).height();
+var winRate = winWidth/winHeight;
+var userAgent = navigator.userAgent.toLowerCase();
+
+>>>>>>> 8b534bf955482bbc8c23572416810b41458ffbe0
 $(window).resize(function() {
 	if(this.resizeTO) {
 		clearTimeout(this.resizeTO);
@@ -52,6 +60,45 @@ function setPage(){
 	} else if (curTop >= offTop4) {
 		$("#gnb a").eq(3).addClass("active");
 	}
+<<<<<<< HEAD
+=======
+
+	// Grid Layout
+	var $container = $('.portfolio ul.pr');
+	var $optionSets = $('.optionSet');
+	var $optionLinks = $optionSets.find('a');
+
+	setTimeout(function() {
+		$(".loader").hide();
+		$container.show();
+		$container.isotope({
+			masonry: {
+				itemSelector : '.box',
+				columnWidth: 1
+			}
+		});
+	}, 3000);
+
+	$optionLinks.click(function(){
+		var $this = $(this);
+		if ( $this.hasClass('selected') ) {
+			return false;
+		}
+
+		var $optionSet = $this.parents('.optionSet');
+		$optionSet.find('.selected').removeClass('selected');
+		$this.addClass('selected');
+
+		var options = {},
+			key = $optionSet.attr('data-option-key'),
+			value = $this.attr('data-option-value');
+		value = value === 'false' ? false : value;
+		options[ key ] = value;
+		$container.isotope( options );
+
+		return false;
+	});
+>>>>>>> 8b534bf955482bbc8c23572416810b41458ffbe0
 }
 
 function setPhoto(){
