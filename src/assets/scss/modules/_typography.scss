@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+
+// heading modular scale
+$pre-font-size: null;
+$leading-collection: (3, 2, 2, 2, 1);
+
+@for $i from 5 through 1 {
+	@if ($pre-font-size == null) {
+		$pre-font-size: 1;
+	}
+
+	$font-size: $pre-font-size * $modular-scale-ratio;
+	$margin-bottom: $base-leading-ratio / $font-size;
+	$line-height: $margin-bottom * nth($leading-collection, $i);
+	$pre-font-size: $font-size;
+
+	h#{$i} {
+		font-size: $font-size + em;
+		line-height: $line-height + em;
+		margin-top: 0;
+		margin-bottom: $margin-bottom + em;
+        letter-spacing: 0;
+	}
+}
+
+h6 {
+	font-size: 1em;
+	margin-top: 0;
+	margin-bottom: $base-leading-ratio + em;
+}

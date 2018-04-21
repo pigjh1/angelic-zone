@@ -1,0 +1,62 @@
+// --------------------------------------------------
+// Layout components
+// --------------------------------------------------
+
+// wrapper
+#wrap {
+	position: relative;
+	-webkit-user-drag: none;
+	touch-action: pan-y;
+}
+
+.main {
+    min-height: 100vh;
+    outline: none;
+    font-size: $base-leading-ratio + em;
+}
+
+// breakpoint
+#bp {
+	$bp-names: '';
+	$index: 1;
+	position: relative;
+	display: none;
+	speak: none;
+	z-index: $index;
+
+	@each $name, $point in $mq-breakpoints {
+		$index: $index + 1;
+		$bp-names: $bp-names + $name + ',';
+
+		@include mq($name)  {
+			z-index: $index;
+		}
+	}
+
+	content: str-slice($bp-names, 0, str-length($bp-names) - 1);
+}
+
+// legacy browser message
+#legacy-browser {
+}
+
+// skip navigation
+#skipnav {
+	position: absolute;
+	left: -100%;
+	color: #fff;
+	background: $gray;
+	font-size: 1.6em;
+}
+#skipnav:focus {
+	display: block;
+	position: fixed;
+	left: 0;
+	width: 100%;
+	z-index: 29999;
+	padding: 20px;
+	font-weight: bold;
+	line-height: 1.5;
+	text-align: center;
+	vertical-align: middle;
+}

@@ -1,0 +1,11 @@
+# Node
+node_modules
+
+# Project
+dist
+src/static/css
+*.rej
+*.zip
+*.map
+*.bundle.js
+debug.log

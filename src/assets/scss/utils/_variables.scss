@@ -1,0 +1,66 @@
+// --------------------------------------------------
+// variables
+// --------------------------------------------------
+
+// breakpoints
+$mq-breakpoints: (
+	x-small:  400px,
+	small:  560px,
+	medium:  720px,
+	large:  960px,
+	x-large: 1200px,
+	xx-large: 1600px
+);
+
+// layout
+$w-small: 360px;
+$w-default: 1280px;
+
+$p-small: 20px;
+$p-default: 50px;
+
+$header-height: 880px;
+
+// grid
+$grid-columns: 12;
+$gutter-small: 20px;
+$gutter-large: 40px;
+
+// fonts
+$font-default: 'Noto Sans', 'Nanum Gothic', '나눔 고딕', 'Malgun Gothic', '맑은 고딕', '돋움', dotum, sans-serif;
+$sans: $font-default;
+$serif: 'Noto Serif', serif;
+$modular-scale-base: 1.2;
+$modular-scale-ratio: 1.2;
+$base-leading-ratio: 1.5;
+$spacing: -0.02em;
+
+// color guide
+$white: #fff;
+$fog: #f9f7f9;
+$ash: #f0f0f0;
+
+$silver-light: #e7e7e7;
+$silver: #ccc;
+$silver-dark: #999;
+
+$gray-light: #888;
+$gray: #666;
+$gray-dark: #555;
+
+$dark: #333;
+$ink: #222;
+$black: #000;
+
+$em: #1b9aec;
+
+$brand: #00acc2;
+$brand-sub: #0e5075;
+
+// easing
+$ease-in-out: cubic-bezier(.2,.05,.05,1);
+$ease-in-out-s: cubic-bezier(.5,0,0,1);
+$ease-out: cubic-bezier(0,.5,.5,1);
+$ease-bounce: cubic-bezier(.2,1.1,.6,1.2);
+
+$ease-base : cubic-bezier(.19,1,.22,1);

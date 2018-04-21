@@ -1,0 +1,24 @@
+// -----------------------------------------------------------------------------
+// Main
+// -----------------------------------------------------------------------------
+
+.main {
+    color: $white;
+
+    h2 {
+        font-size: 2em;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    h3 {
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    section {
+        min-height: 100vh;
+        padding: 3em 0;
+    }
+}

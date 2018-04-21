@@ -1,0 +1,134 @@
+// --------------------------------------------------
+// mixins
+// --------------------------------------------------
+
+@mixin clearfix {
+	zoom: 1;
+
+	&:before {
+		content: '';
+		display: block;
+	}
+
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin break-word {
+	word-break: keep-all;
+	word-wrap: break-word;
+}
+
+@mixin full-pos {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+@mixin ellipsis($lines) {
+	@if ($lines) {
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: $lines;
+		-webkit-box-orient: vertical;
+		text-overflow: ellipsis;
+		word-wrap: normal;
+
+	} @else {
+		overflow: hidden;
+		display: inline-block;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		word-wrap: normal;
+	}
+}
+
+@mixin opacity($value) {
+	$valuePercent: $value * 100;
+
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{#valuePercent})";
+	filter: alpha(opacity=$valuePercent);
+	opacity: $value;
+}
+
+@mixin v-mid($child:'&-cell') {
+	white-space: nowrap;
+
+	#{$child} {
+		display: inline-block;
+		vertical-align: middle;
+		white-space: normal;
+		@content;
+	}
+
+	&:after {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+}
+
+@mixin triangle($size, $color, $direction) {
+	$width: nth($size, 1);
+	$height: nth($size, length($size));
+	$foreground-color: nth($color, 1);
+	$background-color: transparent;
+	height: 0;
+	width: 0;
+
+	@if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+		$width: $width / 2;
+		$height: if(length($size) > 1, $height, $height/2);
+
+		@if $direction == up {
+			border-bottom: $height solid $foreground-color;
+			border-left: $width solid $background-color;
+			border-right: $width solid $background-color;
+
+		} @else if $direction == right {
+			border-bottom: $width solid $background-color;
+			border-left: $height solid $foreground-color;
+			border-top: $width solid $background-color;
+
+		} @else if $direction == down {
+			border-left: $width solid $background-color;
+			border-right: $width solid $background-color;
+			border-top: $height solid $foreground-color;
+
+		} @else if $direction == left {
+			border-bottom: $width solid $background-color;
+			border-right: $height solid $foreground-color;
+			border-top: $width solid $background-color;
+		}
+	}
+}
+
+@mixin focus-outline {
+  outline-width: 1px;
+  outline-style: dotted;
+  outline-color: Highlight;
+
+  @media (-webkit-min-device-pixel-ratio:0) {
+      outline-width: 2px;
+      outline-color: -webkit-focus-ring-color;
+      outline-style: auto;
+  }
+}
+
+@mixin focus-outline {
+	outline-width: 1px;
+	outline-style: dotted;
+	outline-color: Highlight;
+
+	@media (-webkit-min-device-pixel-ratio:0) {
+		outline-width: 2px;
+		outline-style: auto;
+		outline-color: -webkit-focus-ring-color;
+	}
+}
