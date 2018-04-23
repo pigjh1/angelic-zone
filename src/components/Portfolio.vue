@@ -109,7 +109,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.portfolio{display: none}
 .portfolio {
     background: #f17c72;
 

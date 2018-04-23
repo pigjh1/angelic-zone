@@ -3,6 +3,7 @@
         <div class="l-wrap">
             <h1>Angelic Zone</h1>
             <nav id="gnb" class="gnb">
+                <!-- TODO: 스크롤 위치에 따른 활성화 -->
                 <a href="#home" class="is-active">Home</a>
                 <a href="#profile">Profile</a>
                 <a href="#portfolio">Portfolio</a>
@@ -14,7 +15,7 @@
 </template>
 
 <style lang="scss" scoped>
-#header {
+.header {
     position: fixed;
     top: 0;
     width: 100%;
@@ -47,5 +48,4 @@
         }
     }
 }
-
 </style>

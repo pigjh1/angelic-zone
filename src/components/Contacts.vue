@@ -2,8 +2,13 @@
     <section id="contacts" class="contacts">
         <h2>Contacts</h2>
         <div class="box">
-            <a href="http://www.facebook.com/pigjh1" target="_blank"><span class="social facebook">facebook</span></a>
+            <!-- TODO: 아이콘으로 변경 -->
+            <!--
+                https://github.com/pigjh1
+                https://pigjh1.github.io/
+            -->
             <a href="http://twitter.com/pigjh1" target="_blank"><span class="social twitter">twitter</span></a>
+            <a href="http://www.facebook.com/pigjh1" target="_blank"><span class="social facebook">facebook</span></a>
             <a href="https://plus.google.com/u/0/102944575822312165419/posts" target="_blank"><span class="social google">google</span></a>
             <a href="https://www.instagram.com/pigjh1/" target="_blank"><span class="social insta">instagram</span></a>
             <a href="http://pigjh1.tistory.com/" target="_blank"><span class="social tistory">tistory</span></a>

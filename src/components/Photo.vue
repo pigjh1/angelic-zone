@@ -24,7 +24,6 @@
         display: flex;
         flex-wrap: wrap;
     }
-
     li {
         flex: 0 0 25%;
     }
@@ -51,12 +50,6 @@ export default {
         return {
             list: []
         }
-    },
-    computed: {
-
-    },
-    methods: {
-
     }
 }
 </script>
