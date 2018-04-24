@@ -8,8 +8,8 @@
     h2 {
         font-size: 2em;
         font-weight: bold;
-        text-align: center;
         text-transform: uppercase;
+        text-align: center;
     }
 
     h3 {
@@ -18,7 +18,7 @@
     }
 
     section {
-        min-height: 100vh;
+        min-height: calc(100vh - 6em);
         padding: 3em 0;
     }
 }
